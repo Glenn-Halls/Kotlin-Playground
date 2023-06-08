@@ -1,43 +1,13 @@
-// Training: Lambda Functions: Trick or Treat
-
 fun main() {
+    val winningBid = Bid(5000, "Private Collector")
 
-    val coins: (Int) -> String = { "$it quarters" }
-    val cupcake: (Int) -> String = { "Have a cupcake!" }
-
-
-    println(testOutput())
-    val treatFunction = trickOrTreat(false, coins)
-    var trickFunction = trickOrTreat(true, cupcake)
-
-    treatFunction()
-    trickFunction()
-
-    trickOrTreat(false, { "$it quarters" })()
-    trickOrTreat(false) { "$it quarters" }()
-    trickFunction = trickOrTreat(true, null)
-    trickFunction()
+    println("Item A is sold at ${auctionPrice(winningBid, 2000)}.")
+    println("Item B is sold at ${auctionPrice(null, 3000)}.")
 }
 
-fun testOutput(): String {
-    return "output"
-}
+class Bid(val amount: Int, val bidder: String)
 
-fun trickOrTreat(isTrick: Boolean, extraTreat: ((Int) -> String)?): () -> Unit {
-    if (isTrick) {
-        return trick
-    } else {
-        if (extraTreat != null) {
-            println(extraTreat(5))
-        }
-        return treat
-    }
-}
-
- val trick = {
-     println("No treats!")
- }
-
-val treat: () -> Unit = {
-    println("Have a treat!")
+fun auctionPrice(bid: Bid?, minimumPrice: Int): Int {
+    // Fill in the code.
+    return bid?.amount ?: minimumPrice
 }
