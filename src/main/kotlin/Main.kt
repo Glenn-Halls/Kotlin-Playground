@@ -1,21 +1,16 @@
 fun main() {
-    val solarSystem = listOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
-    println(solarSystem.size)
-    println(solarSystem[2])
-    println(solarSystem.indexOf("Earth"))
-    println(solarSystem.indexOf("Pluto"))
-    println()
+    val solarSystem = mutableMapOf(
+        "Mercury" to 0,
+        "Venus" to 0,
+        "Earth" to 1,
+        "Mars" to 2,
+        "Jupiter" to 79,
+        "Saturn" to 82,
+        "Uranus" to 27,
+        "Neptune" to 14
+    )
 
-    val newSolarSystem: MutableSet<String> = mutableSetOf()
     solarSystem.forEach {
-        newSolarSystem.add(it)
-        println(it)
-    }
-
-    newSolarSystem.add("Pluto")
-    println()
-
-    newSolarSystem.forEach {
-        println(it)
+        println("${it.key} has ${it.value} moons.")
     }
 }
