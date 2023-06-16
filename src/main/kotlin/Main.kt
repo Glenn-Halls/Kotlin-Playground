@@ -1,13 +1,14 @@
+class Question<T>(
+    val questionText: String,
+    val answer: T,
+    val difficulty: String
+)
+
+
 fun main() {
-    val winningBid = Bid(5000, "Private Collector")
 
-    println("Item A is sold at ${auctionPrice(winningBid, 2000)}.")
-    println("Item B is sold at ${auctionPrice(null, 3000)}.")
-}
+    val question1 = Question<String>("Quoth the raven ___", "nevermore", "medium")
+    val question2 = Question<Boolean>("The sky is green. True or false.", false, "easy")
+    val question3 = Question<Int>("How many days are there between full moons?", 28, "hard")
 
-class Bid(val amount: Int, val bidder: String)
-
-fun auctionPrice(bid: Bid?, minimumPrice: Int): Int {
-    // Fill in the code.
-    return bid?.amount ?: minimumPrice
 }
