@@ -5,20 +5,17 @@ fun main() {
     println(solarSystem.indexOf("Earth"))
     println(solarSystem.indexOf("Pluto"))
     println()
-    for (planet in solarSystem) {
-        println(planet)
-    }
-    println()
-    val newSolarSystem: MutableList<String> = mutableListOf()
+
+    val newSolarSystem: MutableSet<String> = mutableSetOf()
     solarSystem.forEach {
         newSolarSystem.add(it)
+        println(it)
     }
+
     newSolarSystem.add("Pluto")
-    newSolarSystem.add(3, "Theia")
+    println()
 
     newSolarSystem.forEach {
         println(it)
     }
-
-    newSolarSystem.removeAt(8)
 }
