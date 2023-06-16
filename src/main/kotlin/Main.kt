@@ -1,6 +1,6 @@
 class Cookie(
     val name: String,
-    val softBakes: Boolean,
+    val softBaked: Boolean,
     val hasFilling: Boolean,
     val price: Double
 )
@@ -23,6 +23,14 @@ fun main() {
 
     fullMenu.forEach{
         println(it)
+    }
+
+    val softBakedMenu = cookies.filter { it.softBaked }
+
+    println()
+    println("Soft Cookies:")
+    softBakedMenu.forEach {
+        println("${it.name} - $${it.price}")
     }
 
 }
