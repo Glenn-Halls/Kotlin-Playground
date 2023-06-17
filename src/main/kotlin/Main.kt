@@ -11,6 +11,11 @@ enum class Daypart {
     EVENING
 }
 
+val Event.durationOfEvent: String
+    get() = if (durationInMinutes < 60) "short" else { "long" }
+
+
+
 val event1 = Event(title = "Wake up", description = "Time to get up", daypart = Daypart.MORNING, durationInMinutes = 0)
 val event2 = Event(title = "Eat breakfast", daypart = Daypart.MORNING, durationInMinutes = 15)
 val event3 = Event(title = "Learn about Kotlin", daypart = Daypart.AFTERNOON, durationInMinutes = 30)
@@ -23,5 +28,5 @@ val shortEvents = events.filter { it.durationInMinutes < 60 }
 val groupedEvents = events.groupBy { it.daypart }
 
 fun main() {
-    println("Last event of the day: ${events.last().title}")
+    println("Duration of first event of the day: ${events[0].durationOfEvent}")
 }
