@@ -20,8 +20,10 @@ val event6 = Event(title = "Check out latest Android Jetpack library", daypart =
 
 val events = mutableListOf(event1, event2, event3, event4, event5, event6)
 val shortEvents = events.filter { it.durationInMinutes < 60 }
-
+val groupedEvents = events.groupBy { it.daypart }
 
 fun main() {
-    println("You have ${shortEvents.size} short events.")
+    groupedEvents.forEach {(daypart, events) ->
+        println("${daypart}: ${events.size} events")
+    }
 }
