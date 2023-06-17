@@ -23,7 +23,5 @@ val shortEvents = events.filter { it.durationInMinutes < 60 }
 val groupedEvents = events.groupBy { it.daypart }
 
 fun main() {
-    groupedEvents.forEach {(daypart, events) ->
-        println("${daypart}: ${events.size} events")
-    }
+    println("Last event of the day: ${events.last().title}")
 }
